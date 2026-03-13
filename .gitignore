@@ -1,11 +1,22 @@
 # Compiled class file
 *.class
+.project
+.classpath
+.settings/
+bin/
+
 
 # Log file
 *.log
 
 # BlueJ files
 *.ctxt
+
+# Dossier des fichiers compilés
+/bin/
+/build/
+/out/
+
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
