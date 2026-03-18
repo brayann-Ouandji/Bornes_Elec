@@ -14,10 +14,10 @@ import java.util.List;
 @WebServlet("/api/stations")
 public class StationsServlet extends HttpServlet {
 
-    // Informations de connexion (à retirer)
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/bornes_electriques";
-    private static final String DB_USER = "irve_user";
-    private static final String DB_PASS = "irve_password";
+    // Informations de connexion
+    private static final String URL = "jdbc:mysql://localhost:3306/bornes";
+    private static final String USER = "root";
+    private static final String PASS = "Esi_Lec-28-29INGE";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -33,7 +33,7 @@ public class StationsServlet extends HttpServlet {
         String gratuitParam = request.getParameter("gratuit");
         
      // a requête SQL (Technique du WHERE 1=1)
-        StringBuilder sqlBuilder = new StringBuilder("SELECT * FROM station WHERE 1=1");
+        StringBuilder sqlBuilder = new StringBuilder("SELECT * FROM bornes WHERE 1=1");
         List<Object> parameters = new ArrayList<>();
 
         if (minPuissanceParam != null && !minPuissanceParam.isEmpty()) {
@@ -55,7 +55,7 @@ public class StationsServlet extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
             		PreparedStatement pstmt = conn.prepareStatement(sqlBuilder.toString())) {
                 for (int i = 0; i < parameters.size(); i++) {
                     pstmt.setObject(i + 1, parameters.get(i));

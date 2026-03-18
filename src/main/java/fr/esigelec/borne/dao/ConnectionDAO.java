@@ -17,7 +17,7 @@ public class ConnectionDAO {
 	 */
     private static final String URL = "jdbc:mysql://localhost:3306/bornes";
     private static final String USER = "root";
-    private static final String PASS = "root";
+    private static final String PASS = "Esi_Lec-28-29INGE";
 
     // 1. Connection Method
     private static Connection getConnection() throws SQLException {
