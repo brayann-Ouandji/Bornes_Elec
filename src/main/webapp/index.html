@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bornes Électriques</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="Style.css"> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+
+</head>
+<body>
+
+    <div id="search-bar">
+        <h3>Recherche de Bornes</h3>
+    
+    <div style="margin-bottom: 10px;">
+        <label for="filter-power">Puissance min. :</label>
+        <select id="filter-power">
+            <option value="0">Toutes puissances</option>
+            <option value="22">Accélérée (22 kW)</option>
+            <option value="50">Rapide (50 kW+)</option>
+            <option value="150">Très rapide (150 kW+)</option>
+        </select>
+    </div>
+    
+    <div style="margin-bottom: 10px;">
+        <input type="checkbox" id="filter-free">
+        <label for="filter-free">Uniquement gratuites</label>
+    </div>
+
+    <button id="btn-filter">Appliquer les filtres</button>
+    <hr>
+    <button id="btn-geoloc">Autour de moi</button>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+</body>
+</html>
