@@ -1,45 +1,83 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Bornes Électriques</title>
+<meta charset="UTF-8">
+<title>Bornes Électriques</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="Style.css"> 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+<link rel="stylesheet"
+	href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="Style.css">
+<link rel="stylesheet"
+	href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+<link rel="stylesheet"
+	href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
 
 </head>
 <body>
 
-    <div id="search-bar">
-        <h3>Recherche de Bornes</h3>
-    
-    <div style="margin-bottom: 10px;">
-        <label for="filter-power">Puissance min. :</label>
-        <select id="filter-power">
-            <option value="0">Toutes puissances</option>
-            <option value="22">Accélérée (22 kW)</option>
-            <option value="50">Rapide (50 kW+)</option>
-            <option value="150">Très rapide (150 kW+)</option>
-        </select>
-    </div>
-    
-    <div style="margin-bottom: 10px;">
-        <input type="checkbox" id="filter-free">
-        <label for="filter-free">Uniquement gratuites</label>
-    </div>
+	<div id="search-bar">
+		<h3>Recherche de Bornes</h3>
 
-    <button id="btn-filter">Appliquer les filtres</button>
-    <hr>
-    <button id="btn-geoloc">Autour de moi</button>
-    </div>
+		<div style="margin-bottom: 10px;">
+			<label for="search-address">Adresse / Ville :</label> <input
+				type="text" id="search-address" placeholder="Ex: Paris, Rouen..."
+				style="width: 100%; padding: 4px; box-sizing: border-box;">
+			<button id="btn-search-address"
+				style="width: 100%; margin-top: 4px; padding: 5px;">
+				Rechercher</button>
+		</div>
 
-    <div id="map"></div>
+		<hr>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="app.js"></script>
-    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+		<div style="margin-bottom: 10px;">
+			<label for="filter-power">Puissance min. :</label> <select
+				id="filter-power">
+				<option value="0">Toutes puissances</option>
+				<option value="22">Accélérée (22 kW)</option>
+				<option value="50">Rapide (50 kW+)</option>
+				<option value="150">Très rapide (150 kW+)</option>
+			</select>
+		</div>
+
+		<div style="margin-bottom: 10px;">
+			<label>Types de prises :</label><br> <input type="checkbox"
+				id="filter-ef"> <label for="filter-ef">E/F</label>&nbsp; <input
+				type="checkbox" id="filter-t2"> <label for="filter-t2">Type
+				2</label><br> <input type="checkbox" id="filter-ccs"> <label
+				for="filter-ccs">Combo CCS</label>&nbsp; <input type="checkbox"
+				id="filter-chademo"> <label for="filter-chademo">CHAdeMO</label>
+		</div>
+
+		<div style="margin-bottom: 10px;">
+			<label for="filter-acces">Condition d'accès :</label> <select
+				id="filter-acces">
+				<option value="">Tous</option>
+				<option value="Accès libre">Accès libre</option>
+				<option value="Accès réservé">Accès réservé</option>
+			</select>
+		</div>
+
+		<div style="margin-bottom: 10px;">
+			<input type="checkbox" id="filter-cb"> <label for="filter-cb">Paiement
+				CB accepté</label>
+		</div>
+
+		<div style="margin-bottom: 10px;">
+			<input type="checkbox" id="filter-free"> <label
+				for="filter-free">Uniquement gratuites</label>
+		</div>
+
+		<button id="btn-filter">Appliquer les filtres</button>
+		<hr>
+		<button id="btn-geoloc">Autour de moi</button>
+	</div>
+
+	<div id="map"></div>
+
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+	<script
+		src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+	<script src="app.js"></script>
 
 </body>
 </html>
