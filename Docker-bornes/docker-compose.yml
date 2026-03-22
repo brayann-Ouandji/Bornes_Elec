@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+
+  # ── Conteneur MySQL ──
+  mysql:
+    image: mysql:8.0
+    container_name: bornes-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bornes
+    volumes:
+      - ./bornes_bornes.sql:/docker-entrypoint-initdb.d/bornes.sql
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+
+  # ── Conteneur Tomcat ──
+  tomcat:
+    build: .
+    container_name: bornes-tomcat
+    restart: always
+    ports:
+      - "8081:8080"
+    depends_on:
+      - mysql
+
+volumes:
+  mysql-data:
