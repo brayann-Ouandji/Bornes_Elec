@@ -92,16 +92,15 @@ function chargerStations(minPuissance, gratuit) {
     var acces = document.getElementById("filter-acces").value;
     var paiementCb = document.getElementById("filter-cb").checked;
 
-    var url = "http://127.0.0.1:8080/Bornes_Elec/api/stations"
-        + "?minPuissance=" + encodeURIComponent(minPuissance)
-        + "&gratuit=" + encodeURIComponent(gratuit)
-        + "&priseEf=" + encodeURIComponent(priseEf)
-        + "&priseT2=" + encodeURIComponent(priseT2)
-        + "&priseCcs=" + encodeURIComponent(priseCcs)
-        + "&priseChademo=" + encodeURIComponent(priseChademo)
-        + "&acces=" + encodeURIComponent(acces)
-        + "&paiementCb=" + encodeURIComponent(paiementCb);
-
+	var url = "/api/stations"
+	    + "?minPuissance=" + encodeURIComponent(minPuissance)
+	    + "&gratuit="      + encodeURIComponent(gratuit)
+	    + "&priseEf="      + encodeURIComponent(priseEf)
+	    + "&priseT2="      + encodeURIComponent(priseT2)
+	    + "&priseCcs="     + encodeURIComponent(priseCcs)
+	    + "&priseChademo=" + encodeURIComponent(priseChademo)
+	    + "&acces="        + encodeURIComponent(acces)
+	    + "&paiementCb="   + encodeURIComponent(paiementCb);
     console.log("URL envoyée =", url);
 
     fetch(url)

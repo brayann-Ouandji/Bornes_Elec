@@ -16,7 +16,7 @@ import java.util.List;
 public class StationsServlet extends HttpServlet {
 
 	// Informations de connexion (à retirer)
-	private static final String URL = "jdbc:mysql://127.0.0.1:3306/bornes";
+	private static final String URL = "jdbc:mysql://mysql:3306/bornes";;
 	private static final String USER = "root";
 	private static final String PASS = "root";
 
