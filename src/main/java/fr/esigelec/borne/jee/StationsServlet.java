@@ -1,5 +1,7 @@
 package fr.esigelec.borne.jee;
 
+import fr.esigelec.borne.dao.StationDAO;
+import fr.esigelec.borne.model.Station;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,10 +17,8 @@ import java.util.List;
 //@WebServlet("/StationsServlet")
 public class StationsServlet extends HttpServlet {
 
-	// Informations de connexion (à retirer)
-	private static final String URL = "jdbc:mysql://mysql:3306/bornes";;
-	private static final String USER = "root";
-	private static final String PASS = "root";
+	// lien avec labdd
+	private final StationDAO stationDAO = new StationDAO();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,7 +38,7 @@ public class StationsServlet extends HttpServlet {
 		String accesParam = request.getParameter("acces");
 		String paiementCbParam = request.getParameter("paiementCb");
 
-		// a requête SQL (Technique du WHERE 1=1)
+		// a requête SQL 
 		StringBuilder sqlBuilder = new StringBuilder("SELECT* FROM bornes WHERE 1=1");
 		List<Object> parameters = new ArrayList<>();
 
