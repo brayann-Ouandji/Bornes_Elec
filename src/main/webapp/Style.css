@@ -47,8 +47,6 @@ body {
     margin-bottom: 16px;
 }
 
-#search-bar h3::before { content: "⚡ "; }
-
 #search-bar hr {
     border: none;
     border-top: 1px solid var(--border);
