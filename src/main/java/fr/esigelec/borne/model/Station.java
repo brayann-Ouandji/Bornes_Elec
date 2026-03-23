@@ -2,24 +2,25 @@ package fr.esigelec.borne.model;
 
 public class Station {
 	private int id;
-    private String nom_station;
-    private String adresse;
-    private String commune;
-    private double lat;
-    private double lon;
-    private double puissance;
-    private int nb_prises;
-    private boolean gratuit;
-    private boolean paiement_cb;
-    private String tarif;
-    private String acces;
-    private String horaires;
-    private boolean prise_ef;
-    private boolean prise_t2;
-    private boolean prise_ccs;
-    private boolean prise_chademo;
-    
-    public Station() {}
+	private String nom_station;
+	private String adresse;
+	private String commune;
+	private double lat;
+	private double lon;
+	private double puissance;
+	private int nb_prises;
+	private boolean gratuit;
+	private boolean paiement_cb;
+	private String tarif;
+	private String acces;
+	private String horaires;
+	private boolean prise_ef;
+	private boolean prise_t2;
+	private boolean prise_ccs;
+	private boolean prise_chademo;
+
+	public Station() {
+	}
 
 	public int getId() {
 		return id;
@@ -156,6 +157,5 @@ public class Station {
 	public void setPrise_chademo(boolean prise_chademo) {
 		this.prise_chademo = prise_chademo;
 	}
-    
 
 }
