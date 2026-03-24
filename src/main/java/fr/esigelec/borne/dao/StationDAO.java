@@ -39,7 +39,7 @@ public class StationDAO {
 		if ("true".equals(paiementCb)) {
 			sqlBuilder.append(" AND paiement_cb = 1");
 		}
-		sqlBuilder.append(" LIMIT 500");
+		//sqlBuilder.append(" LIMIT 500");
 
 		ConnectionDAO connectionDAO = new ConnectionDAO();
 
