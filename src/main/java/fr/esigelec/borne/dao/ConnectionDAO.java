@@ -16,8 +16,8 @@ import java.sql.SQLException;
  * 
  */
 public class ConnectionDAO {
-	private static final String URL = "jdbc:mysql://mysql:3306/bornes";// pour les docker
-	/*private static final String URL = "jdbc:mysql://127.0.0.1:3306/bornes";*/// pour le test JUnit
+	//private static final String URL = "jdbc:mysql://mysql:3306/bornes";// pour les docker
+	private static final String URL = "jdbc:mysql://127.0.0.1:3306/bornes";// pour le test JUnit
 	private static final String USER = "root";
 	private static final String PASS = "root";
 

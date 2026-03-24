@@ -30,12 +30,12 @@ map.addLayer(markersCluster);
 
 function afficherStations(stations) {
     markersCluster.clearLayers();
-	
-	if (routingControl) {
-	    map.removeLayer(routingControl);
-	    routingControl = null;
-	}
-	
+
+    if (routingControl) {
+        map.removeLayer(routingControl);
+        routingControl = null;
+    }
+
     stations.forEach(function(station) {
         if (station.lat == null || station.lon == null) return;
 
@@ -79,12 +79,12 @@ function afficherStations(stations) {
 function chargerStations(minPuissance, gratuit) {
     if (minPuissance === undefined) minPuissance = 0;
     if (gratuit === undefined) gratuit = false;
-	
-	if (routingControl) {
-	    map.removeLayer(routingControl);
-	    routingControl = null;
-	}
-	
+
+    if (routingControl) {
+        map.removeLayer(routingControl);
+        routingControl = null;
+    }
+
     var priseEf = document.getElementById("filter-ef").checked;
     var priseT2 = document.getElementById("filter-t2").checked;
     var priseCcs = document.getElementById("filter-ccs").checked;
@@ -92,17 +92,26 @@ function chargerStations(minPuissance, gratuit) {
     var acces = document.getElementById("filter-acces").value;
     var paiementCb = document.getElementById("filter-cb").checked;
 
-	var url = "/api/stations"
-	    + "?minPuissance=" + encodeURIComponent(minPuissance)
-	    + "&gratuit="      + encodeURIComponent(gratuit)
-	    + "&priseEf="      + encodeURIComponent(priseEf)
-	    + "&priseT2="      + encodeURIComponent(priseT2)
-	    + "&priseCcs="     + encodeURIComponent(priseCcs)
-	    + "&priseChademo=" + encodeURIComponent(priseChademo)
-	    + "&acces="        + encodeURIComponent(acces)
-	    + "&paiementCb="   + encodeURIComponent(paiementCb);
-    console.log("URL envoyée =", url);
-
+   /* var url = "/api/stations"
+        + "?minPuissance=" + encodeURIComponent(minPuissance)
+        + "&gratuit=" + encodeURIComponent(gratuit)
+        + "&priseEf=" + encodeURIComponent(priseEf)
+        + "&priseT2=" + encodeURIComponent(priseT2)
+        + "&priseCcs=" + encodeURIComponent(priseCcs)
+        + "&priseChademo=" + encodeURIComponent(priseChademo)
+        + "&acces=" + encodeURIComponent(acces)
+        + "&paiementCb=" + encodeURIComponent(paiementCb);*/ // Docker
+    
+    var url = "http://127.0.0.1:8080/Bornes_Elec/api/stations"
+        + "?minPuissance=" + encodeURIComponent(minPuissance)
+        + "&gratuit=" + encodeURIComponent(gratuit)
+        + "&priseEf=" + encodeURIComponent(priseEf)
+        + "&priseT2=" + encodeURIComponent(priseT2)
+        + "&priseCcs=" + encodeURIComponent(priseCcs)
+        + "&priseChademo=" + encodeURIComponent(priseChademo)
+        + "&acces=" + encodeURIComponent(acces)
+        + "&paiementCb=" + encodeURIComponent(paiementCb);//local tomcat
+		console.log("URL envoyée =", url);
     fetch(url)
         .then(function(response) {
             if (!response.ok) throw new Error("Erreur HTTP : " + response.status);
