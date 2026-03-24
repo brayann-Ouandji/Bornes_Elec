@@ -66,8 +66,7 @@ function afficherStations(stations) {
             "<b>Accès :</b> " + (station.acces || "N/A") + "<br>" +
             "<b>Horaires :</b> " + (station.horaires || "N/A") + "<br>" +
             "<hr style='margin:6px 0'>" +
-            "<button onclick='lancerItineraire(" + station.lat + "," + station.lon + ")' " +
-            "style='width:100%;padding:6px;background:#2196F3;color:white;border:none;border-radius:4px;cursor:pointer'>" +
+            "<button onclick='lancerItineraire(" + station.lat + "," + station.lon + ") >" +
             "Y aller</button>" +
             "</div>";
 
@@ -92,7 +91,7 @@ function chargerStations(minPuissance, gratuit) {
     var acces = document.getElementById("filter-acces").value;
     var paiementCb = document.getElementById("filter-cb").checked;
 
-   /* var url = "/api/stations"
+    var url = "/api/stations"
         + "?minPuissance=" + encodeURIComponent(minPuissance)
         + "&gratuit=" + encodeURIComponent(gratuit)
         + "&priseEf=" + encodeURIComponent(priseEf)
@@ -100,9 +99,9 @@ function chargerStations(minPuissance, gratuit) {
         + "&priseCcs=" + encodeURIComponent(priseCcs)
         + "&priseChademo=" + encodeURIComponent(priseChademo)
         + "&acces=" + encodeURIComponent(acces)
-        + "&paiementCb=" + encodeURIComponent(paiementCb);*/ // Docker
-    
-    var url = "http://127.0.0.1:8080/Bornes_Elec/api/stations"
+        + "&paiementCb=" + encodeURIComponent(paiementCb); // Docker
+
+    /*var url = "http://127.0.0.1:8080/Bornes_Elec/api/stations"
         + "?minPuissance=" + encodeURIComponent(minPuissance)
         + "&gratuit=" + encodeURIComponent(gratuit)
         + "&priseEf=" + encodeURIComponent(priseEf)
@@ -110,8 +109,8 @@ function chargerStations(minPuissance, gratuit) {
         + "&priseCcs=" + encodeURIComponent(priseCcs)
         + "&priseChademo=" + encodeURIComponent(priseChademo)
         + "&acces=" + encodeURIComponent(acces)
-        + "&paiementCb=" + encodeURIComponent(paiementCb);//local tomcat
-		console.log("URL envoyée =", url);
+        + "&paiementCb=" + encodeURIComponent(paiementCb);*///local tomcat
+    console.log("URL envoyée =", url);
     fetch(url)
         .then(function(response) {
             if (!response.ok) throw new Error("Erreur HTTP : " + response.status);
