@@ -12,9 +12,6 @@ import java.sql.*;
 
 class StationsIntegrationTest {
 
-    private static final String TEST_URL = "jdbc:mysql://127.0.0.1:3306/bornes";
-    private static final String TEST_USER = "root";
-    private static final String TEST_PASSWORD = "root";
     private Connection conn;
 
     @BeforeEach
